@@ -1,0 +1,86 @@
+.main-container {
+    background-color:rgb(175, 234, 255);
+    width: 100%;
+    height: 100%;
+    font-family: Georgia;
+    padding: 10px;
+
+}
+
+#heading {
+    text-align: center;
+    margin-top: 50px; 
+}
+
+#genre {
+    font-size: 20px;
+    margin: 20px;
+}
+
+label[for="genre"] {
+    font-size: 25px; 
+}
+
+
+/* navbar styling */
+.navbar {
+    width: 100%; 
+}
+
+.container {
+    width: auto; 
+}
+
+.navbar-brand {
+    color: red; 
+    margin-right: auto; 
+}
+
+.navbar-nav {
+    margin: 0; 
+}
+
+.nav-item {
+    margin: 0 10px; 
+}
+
+.nav-link {
+    color: white; 
+    text-decoration: none; 
+    font-size: 18px; 
+    padding: 10px 15px; 
+}
+
+.navbar-title {
+    color: red; 
+    font-weight: bold; 
+    margin-right: auto; 
+    font-size: 18px;
+}
+
+/* home page. genre choice */
+#genre {
+    font-size: 20px;
+    margin: 20px; 
+}
+
+#genre-label {
+    margin-left: 28px;
+    font-weight: bold;
+    top: 30px;
+    position: relative;
+}
+
+input[type="submit"] {
+    margin-left: 30px; 
+    margin-top: -30px; 
+}
+
+/* footer styling */
+
+#my-footer {
+    background-color: #333; 
+    color: #fff; 
+    padding: 20px; 
+}
+
