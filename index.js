@@ -9,10 +9,12 @@ const { response } = require('express')
 
 // supabase 
 var supabaseUrl = 'https://mcljyaucbvrdkwsgwpuo.supabase.co'
-var supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jbGp5YXVjYnZyZGt3c2d3cHVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4OTg2MzYsImV4cCI6MjAzMTQ3NDYzNn0.Nz6l90Pd_AQm7E_LeaS7uPtR3FHpoFESGiWdRFQsmtw'
+//prettier-ignore
+var supabaseKey = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jbGp5YXVjYnZyZGt3c2d3cHVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4OTg2MzYsImV4cCI6MjAzMTQ3NDYzNn0.Nz6l90Pd_AQm7E_LeaS7uPtR3FHpoFESGiWdRFQsmtw`;
 
 //Watchmode API key
 var apiKey = 'ZeLov6MaUiKYAh22NDsLwOqE9SBcptOVFM7lOlfP'
+
 
 // Creating a supabase client
 const supabase = supabaseModule.createClient(supabaseUrl, supabaseKey)
@@ -25,6 +27,43 @@ const port = 3000
 app.use(bodyParser.json())
 
 app.use(express.static(__dirname + '/public'))
+
+// This function will populate the supabase with movie listing from watchmode API
+/*const initializDataBase = async ()=>{
+    
+    const {data, error} = await supabase
+        .from('movieTitles')
+        .select('*').limit(1)
+
+        console.log("data",data)
+
+    if (error){
+        console.log('Error checking database')
+
+    }
+
+    if (data.length === 0){
+
+
+        // url request coming from user must end with '/movie_lists'
+        fetch(`https://api.watchmode.com/v1/list-titles/?apiKey=${apiKey}`)
+
+            .then((response)=>response.json())
+            .then(async (response) =>{
+
+                console.log("there is response:", response['titles'])
+                const movieTitles = response['titles']
+
+                const {data, error} = await supabase
+                .from('MovieTitles')
+                .insert(movieTitles)
+
+            })
+
+
+    }
+}
+*/
 
 //Rendering the Front End to the user browser
 app.get('/', (req, res)=>{
@@ -45,11 +84,16 @@ app.get('/movie_lists', async (req, res)=>{
         const {data, error}= await supabase
             .from('MovieTitles')
             .select('id')
+
+            console.log('DATA', data)
         
         if (data.length === 0){
             const {data, error} = await supabase
             .from('MovieTitles')
             .insert(movieTitles)
+
+            res.send(data)
+            
         }
         else{
             const {data, error} = await supabase
@@ -63,6 +107,7 @@ app.get('/movie_lists', async (req, res)=>{
     })
 
 })
+
 
 
 app.get('/movieDetails/:value', async (req, res)=>{
@@ -90,6 +135,9 @@ app.get('/movieDetails/:value', async (req, res)=>{
 
 
 // Call initialization database when the server starts
+//initializDataBase();
+
+
 
 
 
