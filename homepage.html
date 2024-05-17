@@ -35,22 +35,29 @@
     </nav>
 
     <!--This changes based on what genre you choose-->
-    <h1 id="heading">Based on your selection, the best <span id="selectedGenre">...</span> movies to watch are:</h1>
+    <h1 id="heading">Welcome to Movie Discoveries</h1>
 
-    <!--This is the form where you select the genre. Should be connected to API that shows movies in that genres-->
-    <form action="selectedgenre.html" method="get">
-        <label for="genre" id="genre-label">Genre:</label><br>
-        <select id="genre" name="genre" size="6"> 
-            <option value="action">Action</option>
-            <option value="comedy">Comedy</option>
-            <option value="drama">Drama</option>
-            <option value="horror">Horror</option>
-            <option value="anime">Anime</option>
-            <option value="horror">Sci-Fi</option>
-        </select>
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
+<br>
+
+<h2 style="text-align: center;">What would you like to do?</h2>
+
+<br>
+
+<div style="text-align: center;"> <!-- Centering the buttons -->
+    <a href="recommendedpage.html" class="button-27">Get Personalized Recommendations</a>
+    <a href="trendingpage.html" class="button-27">See Whats Trending</a>
+</div>
+
+    <br><br>
+
+    <div class="slider-container">
+        <h4 style="text-align: center;">Need a Quick Pick? Heres a random movie</h4>
+        <div class="slide" id="movie-slide">
+          <!-- Movie details and trailer link will be displayed here -->
+        </div>
+        <button class="prev" id="prev">&#10094; Prev</button>
+        <button class="next" id="next">Next &#10095;</button>
+      </div>
 
     <!-- Footer Section -->
     <footer id="my-footer" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
