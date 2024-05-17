@@ -3,6 +3,14 @@
 API Info: www.watchmode.com
 API key: https://api.watchmode.com/v1/releases/?apiKey=ZeLov6MaUiKYAh22NDsLwOqE9SBcptOVFM7lOlfP'
 
+Supabase Database:
+    Project Name in Database: Movie Discoveries
+    Project URL: https://mcljyaucbvrdkwsgwpuo.supabase.co
+
+    API Key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jbGp5YXVjYnZyZGt3c2d3cHVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4OTg2MzYsImV4cCI6MjAzMTQ3NDYzNn0.Nz6l90Pd_AQm7E_LeaS7uPtR3FHpoFESGiWdRFQsmtw
+
+
+
 
 
 Movie Discovery and Recommendations
