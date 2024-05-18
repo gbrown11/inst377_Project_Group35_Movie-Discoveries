@@ -13,7 +13,7 @@ var supabaseUrl = 'https://mcljyaucbvrdkwsgwpuo.supabase.co'
 var supabaseKey = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jbGp5YXVjYnZyZGt3c2d3cHVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4OTg2MzYsImV4cCI6MjAzMTQ3NDYzNn0.Nz6l90Pd_AQm7E_LeaS7uPtR3FHpoFESGiWdRFQsmtw`;
 
 //Watchmode API key
-var apiKey = 'ZeLov6MaUiKYAh22NDsLwOqE9SBcptOVFM7lOlfP'
+var apiKey = 'vpB0RRJhNS2TfTf3gMFMnb1GLJgItUgDLLED49nT'
 
 
 // Creating a supabase client
@@ -28,42 +28,7 @@ app.use(bodyParser.json())
 
 app.use(express.static(__dirname + '/public'))
 
-// This function will populate the supabase with movie listing from watchmode API
-/*const initializDataBase = async ()=>{
-    
-    const {data, error} = await supabase
-        .from('movieTitles')
-        .select('*').limit(1)
 
-        console.log("data",data)
-
-    if (error){
-        console.log('Error checking database')
-
-    }
-
-    if (data.length === 0){
-
-
-        // url request coming from user must end with '/movie_lists'
-        fetch(`https://api.watchmode.com/v1/list-titles/?apiKey=${apiKey}`)
-
-            .then((response)=>response.json())
-            .then(async (response) =>{
-
-                console.log("there is response:", response['titles'])
-                const movieTitles = response['titles']
-
-                const {data, error} = await supabase
-                .from('MovieTitles')
-                .insert(movieTitles)
-
-            })
-
-
-    }
-}
-*/
 
 //Rendering the Front End to the user browser
 app.get('/', (req, res)=>{
@@ -110,37 +75,34 @@ app.get('/movie_lists', async (req, res)=>{
 
 
 
-app.get('/movieDetails/:value', async (req, res)=>{
-    // This GET will recieve a title convert to id and generate movie details
-    const value = req.params.value;
+app.get('/movieDetails', async (req, res)=>{
 
-    const {data, error}= await supabase
-        .from('TitleMapId')
-        .select('id')
-        .eq('title', value)
+    const movietitle = req.query.title
+    console.log('This is param:',movietitle)
+
+    const {data, error} = await supabase
+        .from('titleID')
+        .select()
+        .eq('title', movietitle.trim())
+        
+
+        console.log('THE ID',data[0].id)
 
 
-    fetch(`https://api.watchmode.com/v1/title/${data}/details/?apiKey=ZeLov6MaUiKYAh22NDsLwOqE9SBcptOVFM7lOlfP&append_to_response=sources`)
+    var movieId = data[0].id
+
+    fetch(`https://api.watchmode.com/v1/title/${movieId}/details/?apiKey=${apiKey}&append_to_response=sources`)
         .then((response)=>response.json())
         .then((response)=>{
-            
+
             res.send(JSON.stringify(response))
+            return;
 
         })
     
 })
 
 
-
-
-
-// Call initialization database when the server starts
-//initializDataBase();
-
-
-
-
-
 app.listen(port, ()=>{
-    console.log('APP IS LIVE')
+    console.log('SERVER APP IS LIVE')
 })

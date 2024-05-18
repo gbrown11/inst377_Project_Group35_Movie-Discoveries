@@ -1,17 +1,13 @@
+// This code is used to fetch movie details at the front end
 const host = window.location.origin 
 
-// use this function to get the movie details
-async function sendTitleForDetail(value){
-    fetch(`${host}/movieDetails${encodeURIComponent(value)}`)
+// use this fetch method to get movie details
+const title = 'movie title here'
 
-        .then((res)=>res.json())
-        .then((res)=>{
+fetch(`${host}/movieDetails?title=${encodeURIComponent(title)}`)
+    .then((res)=>res.json())
+    .then((res)=>{
 
-            console.timeLog('Movie Title details', res)
-            
-            // to display the movie details. Its a json file
-        })
+        console.log(res)
+    })
 
-
-
-}
