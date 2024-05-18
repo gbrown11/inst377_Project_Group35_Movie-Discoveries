@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>About Us - Movie Discoveries</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="finalproject.css">
+    <style>
+        .section-header {
+            color: #2A9D8F;
+            margin-top: 20px;
+        }
+        .icon {
+            color: #264653;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,7 +29,7 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="homepage.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="aboutpage.html">About</a>
@@ -38,7 +48,24 @@
     <!-- About Content Section -->
     <div class="main-container">
         <h1 id="heading">About Movie Discoveries</h1>
-        <p>Welcome to Movie Discoveries, your ultimate resource for finding the best movies across all genres. Our mission is to help you discover films that match your taste, mood, and preferences. Browse through our recommendations, explore trending genres, and find your next favorite movie!</p>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="section-header"><span class="icon">&#128250;</span> Our Challenge</h2>
+                <p>With an abundance of films released each year, finding the right movie to watch has become overwhelming. Our platform tackles this by streamlining your search and discovery process.</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="section-header"><span class="icon">&#128105;&#127995;</span> Our Mission</h2>
+                <p>We aim to simplify your movie-watching experience, providing insights into movies from diverse genres and streaming platforms, making discovery fun and easy.</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="section-header"><span class="icon">&#128187;</span> Our Solution</h2>
+                <p>Our web app offers powerful search and filtering options, personalized recommendations, and a user-friendly interface, all powered by robust technology and comprehensive data.</p>
+            </div>
+        </div>
+
+        <h2 class="section-header"><span class="icon">&#128640;</span> Who We Serve</h2>
+        <p>From casual viewers to movie buffs, our platform serves all movie lovers looking for the next great watch, leveraging their feedback to constantly evolve and improve.</p>
     </div>
 
     <!-- Footer Section -->
@@ -52,7 +79,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!--Our Javascript Page-->
-    <script src="homepage.js"></script>
 </body>
 </html>
