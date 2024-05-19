@@ -39,15 +39,41 @@
         <!-- Recommended Movies Content Section -->
         <div class="main-container">
             <h1 id="heading">Recommended for You</h1>
-            <p>Discover movies tailored to your taste. Check out these personalized recommendations!</p>
+            <p>Discover new movies tailored to your taste. Check out these recommendations!</p>
             <!-- Example Recommendations List -->
-            <ul>
-                <li>Movie 1: Description, Rating</li>
-                <li>Movie 2: Description, Rating</li>
-                <li>Movie 3: Description, Rating</li>
-            </ul>
+
+            <div id="form-area">
+                <br>
+                <h3>Select one of our recommended new release movies for detail</h3>
+
+                <form id="form" onsubmit="displayMovie(); return false">
+
+                    <label for="movie-title">Select a title</label>
+                    <select id="movie-title">
+
+                    </select>
+                    <br><br>
+                    <input type="submit">
+                
+                </form>
+    
+            </div>
 
         </div>
+        <div id="movieDetailsArea">
+            <!--This area will display movie details-->
+            <div id="text">
+                <p id="title"></p>
+                <p id="source"></p>
+                <p id="date"></p>
+                <p id="type"></p>
+            </div>
+            <div id="poster">
+
+            </div>
+
+        </div>
+        
 
         <!-- Footer Section -->
         <footer id="my-footer" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">

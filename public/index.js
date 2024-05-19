@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const apiKey = '3lnbol8HSBB3eqsEeDJVDwXeR7r6HjhBEzOMeBOh';
+  
   let moviesData = null;
   let currentIndex = 0;
 
@@ -76,6 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
   fetchMovies();
 });
 
+
+
 async function movieDetail(movieTitle){
 
   const detailpage = document.getElementById('movieDetails')
@@ -117,19 +120,8 @@ async function movieDetail(movieTitle){
         img.height = 450
         poster.appendChild(img)
 
-
-
-        
-
-        
-
           
       })
       
-  
-
-
-
-
 
 }
