@@ -25,4 +25,4 @@ Project Description:
 Description of target browser (iOS? Android? Which one): This application has been tested on both safari and google browser and on macboo and windows computer. Although the application can work on both browers and devices, it works seamless on safari browser
 The target browser for this applicaton will be iOS
 
-Link to Developer Manual
+Link to Developer Manual: https://docs.google.com/document/d/1iQtrTg3yOZXmz6-VG2anxBNhbfzD5CX85O8qGllj_qw/edit?usp=sharing
