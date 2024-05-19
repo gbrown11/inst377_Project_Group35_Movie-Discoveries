@@ -34,14 +34,20 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 
+
+ 
+
   function displayMovie(index) {
     if (moviesData && moviesData.length > 0 && index >= 0 && index < moviesData.length) {
       const movie = moviesData[index];
       const title = movie.title;
       const movieType = movie.type ? movie.type.replace(/_/g, ' ') : 'Type not available';
 
+      
+
+      //Get the wrap the innerHTML and create a link to call the movieDetail API for details
       slideContainer.innerHTML = `
-        <p class="movie-details"><strong>Title:</strong> ${title}</p>
+        <p class="movie-details"><strong>Title:</strong><a href="#" onclick="movieDetail(this.textContent)">${title}</a></p>
         <p class="movie-details"><strong>Type:</strong> ${movieType}</p>
       `;
       currentIndex = index;
@@ -69,3 +75,67 @@ document.addEventListener('DOMContentLoaded', function() {
 
   fetchMovies();
 });
+
+async function movieDetail(movieTitle){
+
+  // Use the id="movieDetails" to capture the area
+  //console.log('function movie title:',movieTitle)
+  const detailpage = document.getElementById('movieDetails')
+  //detailpage.innerHTML = movieTitle
+
+  const host = window.location.origin 
+
+  // use this fetch method to get movie details
+  
+
+  fetch(`${host}/movieDetails?title=${encodeURIComponent(movieTitle)}`)
+      .then((res)=>res.json())
+      .then((res)=>{
+
+        console.log(res)
+        console.log('TITLE',res.title)
+        const title = document.getElementById('title')
+        const genre = document.getElementById('genre')
+        const year = document.getElementById('year')
+        const plot = document.getElementById('plot')
+        const trailer = document.getElementById('trailer')
+        
+
+
+        title.innerHTML = `Movie Title: ${res.title}`
+        genre.innerHTML = `Genre: ${res.genre_names[0]}`
+        year.innerHTML = `Year released: ${res.year}`
+        plot.innerHTML =`Movie plot:${res.plot_overview}`
+        trailer.innerHTML = `Trailer: <a href=${res.trailer}>movie link</a>`
+
+        const poster = document.getElementById("poster")
+
+        let existingImage = poster.querySelector('img')
+
+        if(existingImage){
+          existingImage.remove();
+        }
+
+        const img = document.createElement('img')
+        img.src = res.poster
+        img.alt = "Movie poster"
+        img.width = 490
+        img.height = 450
+        poster.appendChild(img)
+
+
+
+        
+
+        
+
+          
+      })
+      
+  
+
+
+
+
+
+}

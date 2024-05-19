@@ -13,7 +13,7 @@ var supabaseUrl = 'https://mcljyaucbvrdkwsgwpuo.supabase.co'
 var supabaseKey = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jbGp5YXVjYnZyZGt3c2d3cHVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4OTg2MzYsImV4cCI6MjAzMTQ3NDYzNn0.Nz6l90Pd_AQm7E_LeaS7uPtR3FHpoFESGiWdRFQsmtw`;
 
 //Watchmode API key
-var apiKey = 'vpB0RRJhNS2TfTf3gMFMnb1GLJgItUgDLLED49nT'
+var apiKey = 'ALBFOW3yuAaUXG6k0S2LQ2LZPF0sIj3D6bo2wzvo'
 
 
 // Creating a supabase client
@@ -32,7 +32,7 @@ app.use(express.static(__dirname + '/public'))
 
 //Rendering the Front End to the user browser
 app.get('/', (req, res)=>{
-    res.sendFile('public/homepage.html', {root:__dirname})
+    res.sendFile('public/index.html', {root:__dirname})
 })
 
 // fetching movie listing from watchmode.com
@@ -86,7 +86,7 @@ app.get('/movieDetails', async (req, res)=>{
         .eq('title', movietitle.trim())
         
 
-        console.log('THE ID',data[0].id)
+        //console.log('THE ID',data[0].id)
 
 
     var movieId = data[0].id
