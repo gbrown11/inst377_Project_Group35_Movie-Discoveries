@@ -19,9 +19,10 @@ Team Members: Michael Castro, Gordon Brown, Nana Kofi Brenya, Luke Walsh, Mikola
 
 Topic: Movie Discovery & Recommendations
 
-Project Description: In today's digital age, the movie industry is booming with an ever-increasing number of films being released every year. With such a vast array of options available, it can be overwhelming for movie enthusiasts to keep track of trending movies, explore different genres, and discover hidden gems. For our team to address this need, we have developed a movie collection interface, which will provide users with a centralized platform to explore and gain knowledge about trending movies based on ratings, genres, release dates, and more. And also which streaming services (Netflix, Hulu, Plex, Amazon prime, etc) those movies are available to watch them.
+Project Description:
+    In today's digital age, the movie industry is booming with an ever-increasing number of films being released every year. With such a vast array of options available, it can be overwhelming for movie enthusiasts to keep track of trending movies, explore different genres, and discover hidden gems. For our team to address this need, we have developed a movie collection interface, which will provide users with a centralized platform to explore and gain knowledge about trending movies based on ratings, genres, release dates, and more. And also which streaming services (Netflix, Hulu, Plex, Amazon prime, etc) those movies are available to watch them.
 
-Description of target browser (iOS? Android? Which one)
+Description of target browser (iOS? Android? Which one): This application has been tested on both safari and google browser and on macboo and windows computer. Although the application can work on both browers and devices, it works seamless on safari browser
 The target browser for this applicaton will be iOS
 
 Link to Developer Manual

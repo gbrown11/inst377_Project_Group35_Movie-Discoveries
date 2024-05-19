@@ -78,15 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function movieDetail(movieTitle){
 
-  // Use the id="movieDetails" to capture the area
-  //console.log('function movie title:',movieTitle)
   const detailpage = document.getElementById('movieDetails')
-  //detailpage.innerHTML = movieTitle
-
-  const host = window.location.origin 
-
-  // use this fetch method to get movie details
   
+  const host = window.location.origin 
 
   fetch(`${host}/movieDetails?title=${encodeURIComponent(movieTitle)}`)
       .then((res)=>res.json())
@@ -102,11 +96,11 @@ async function movieDetail(movieTitle){
         
 
 
-        title.innerHTML = `Movie Title: ${res.title}`
-        genre.innerHTML = `Genre: ${res.genre_names[0]}`
-        year.innerHTML = `Year released: ${res.year}`
-        plot.innerHTML =`Movie plot:${res.plot_overview}`
-        trailer.innerHTML = `Trailer: <a href=${res.trailer}>movie link</a>`
+        title.innerHTML = `<strong>Movie Title:</strong> ${res.title}`
+        genre.innerHTML = `<strong>Genre:</strong> ${res.genre_names[0]}`
+        year.innerHTML = `<strong>Year released:</strong> ${res.year}`
+        plot.innerHTML =`<strong>Movie plot:</strong><br>${res.plot_overview}`
+        trailer.innerHTML = `<strong>Trailer: </strong><a href=${res.trailer}>movie link</a>`
 
         const poster = document.getElementById("poster")
 
