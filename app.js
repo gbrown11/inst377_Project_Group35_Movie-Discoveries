@@ -103,6 +103,8 @@ app.get('/movieDetails', async (req, res)=>{
 })
 
 
+
+
 app.listen(port, ()=>{
     console.log('SERVER APP IS LIVE')
 })
