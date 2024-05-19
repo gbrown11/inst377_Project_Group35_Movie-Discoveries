@@ -125,3 +125,39 @@ async function movieDetail(movieTitle){
       
 
 }
+
+//Voice Commands
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.annyang) {
+      var commands = {
+          'navigate to about': function() {
+              window.location.href = 'aboutpage.html';
+          },
+          'navigate to trending': function() {
+              window.location.href = 'trendingpage.html';
+          },
+          'navigate to recommended': function() {
+              window.location.href = 'recommendedpage.html';
+          },
+          'navigate to home': function() {
+            window.location.href = 'index.html';
+        },
+      };  
+      annyang.addCommands(commands);
+  } else {
+      console.log("Annyang not available.");
+  }
+
+  document.getElementById('startButton').addEventListener('click', function () {
+      if (window.annyang) {
+          annyang.start({continuous: true, autoRestart: false});
+      }
+  });
+
+  document.getElementById('stopButton').addEventListener('click', function () {
+      if (window.annyang) {
+          annyang.abort();
+      }
+  });  
+});
