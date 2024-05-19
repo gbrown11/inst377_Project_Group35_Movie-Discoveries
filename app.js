@@ -82,9 +82,6 @@ app.get('/movieDetails', async (req, res)=>{
         .from('titleID')
         .select()
         .eq('title', movietitle.trim())
-        
-
-        //console.log('THE ID',data[0].id)
 
 
     var movieId = data[0].id
@@ -122,8 +119,6 @@ function populateNewRelease(){
             const {data, error} = await supabase
             .from('newReleases')
             .insert(new_release)
-
-            //res.send(data)
             
         }
         else{
@@ -171,8 +166,6 @@ app.get('/newrelease', async (req, res)=>{
     else{
         res.send(data)
     }
-
-
 
 
 
