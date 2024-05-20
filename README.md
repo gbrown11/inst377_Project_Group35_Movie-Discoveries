@@ -21,8 +21,13 @@ Project URL: https://mcljyaucbvrdkwsgwpuo.supabase.co
 
 API Key: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jbGp5YXVjYnZyZGt3c2d3cHVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4OTg2MzYsImV4cCI6MjAzMTQ3NDYzNn0.Nz6l90Pd_AQm7E_LeaS7uPtR3FHpoFESGiWdRFQsmtw`
 
-Vercel Deployment Link:
-    inst377-project-group35-movie-discoveries-mu.vercel.app
+Vercel Domain Link:
+    `inst377-project-grou-git-4b7d86-gordon-browns-projects-8c8e45f2.vercel.app`
+
+    `inst377-project-group35-movie-d-gordon-browns-projects-8c8e45f2.vercel.app`
+    
+
+    
 
 
 
