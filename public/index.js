@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const apiKey = '3lnbol8HSBB3eqsEeDJVDwXeR7r6HjhBEzOMeBOh';
-  
+
   let moviesData = null;
   let currentIndex = 0;
 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
- 
+
 
   function displayMovie(index) {
     if (moviesData && moviesData.length > 0 && index >= 0 && index < moviesData.length) {
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const title = movie.title;
       const movieType = movie.type ? movie.type.replace(/_/g, ' ') : 'Type not available';
 
-      
+
 
       //Get the wrap the innerHTML and create a link to call the movieDetail API for details
       slideContainer.innerHTML = `
@@ -79,85 +79,85 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-async function movieDetail(movieTitle){
+async function movieDetail(movieTitle) {
 
   const detailpage = document.getElementById('movieDetails')
-  
-  const host = window.location.origin 
+
+  const host = window.location.origin
 
   fetch(`${host}/movieDetails?title=${encodeURIComponent(movieTitle)}`)
-      .then((res)=>res.json())
-      .then((res)=>{
+    .then((res) => res.json())
+    .then((res) => {
 
-        console.log(res)
-        console.log('TITLE',res.title)
-        const title = document.getElementById('title')
-        const genre = document.getElementById('genre')
-        const year = document.getElementById('year')
-        const plot = document.getElementById('plot')
-        const trailer = document.getElementById('trailer')
-        
+      console.log(res)
+      console.log('TITLE', res.title)
+      const title = document.getElementById('title')
+      const genre = document.getElementById('genre')
+      const year = document.getElementById('year')
+      const plot = document.getElementById('plot')
+      const trailer = document.getElementById('trailer')
 
 
-        title.innerHTML = `<strong>Movie Title:</strong> ${res.title}`
-        genre.innerHTML = `<strong>Genre:</strong> ${res.genre_names[0]}`
-        year.innerHTML = `<strong>Year released:</strong> ${res.year}`
-        plot.innerHTML =`<strong>Movie plot:</strong><br>${res.plot_overview}`
-        trailer.innerHTML = `<strong>Trailer: </strong><a href=${res.trailer}>movie link</a>`
 
-        const poster = document.getElementById("poster")
+      title.innerHTML = `<strong>Movie Title:</strong> ${res.title}`
+      genre.innerHTML = `<strong>Genre:</strong> ${res.genre_names[0]}`
+      year.innerHTML = `<strong>Year released:</strong> ${res.year}`
+      plot.innerHTML = `<strong>Movie plot:</strong><br>${res.plot_overview}`
+      trailer.innerHTML = `<strong>Trailer: </strong><a href=${res.trailer}>movie link</a>`
 
-        let existingImage = poster.querySelector('img')
+      const poster = document.getElementById("poster")
 
-        if(existingImage){
-          existingImage.remove();
-        }
+      let existingImage = poster.querySelector('img')
 
-        const img = document.createElement('img')
-        img.src = res.poster
-        img.alt = "Movie poster"
-        img.width = 490
-        img.height = 450
-        poster.appendChild(img)
+      if (existingImage) {
+        existingImage.remove();
+      }
 
-          
-      })
-      
+      const img = document.createElement('img')
+      img.src = res.poster
+      img.alt = "Movie poster"
+      img.width = 490
+      img.height = 450
+      poster.appendChild(img)
+
+
+    })
+
 
 }
 
 //Voice Commands
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   if (window.annyang) {
-      var commands = {
-          'navigate to about': function() {
-              window.location.href = 'aboutpage.html';
-          },
-          'navigate to trending': function() {
-              window.location.href = 'trendingpage.html';
-          },
-          'navigate to recommended': function() {
-              window.location.href = 'recommendedpage.html';
-          },
-          'navigate to home': function() {
-            window.location.href = 'index.html';
-        },
-      };  
-      annyang.addCommands(commands);
+    var commands = {
+      'navigate to about': function () {
+        window.location.href = 'aboutpage.html';
+      },
+      'navigate to trending': function () {
+        window.location.href = 'trendingpage.html';
+      },
+      'navigate to recommended': function () {
+        window.location.href = 'recommendedpage.html';
+      },
+      'navigate to home': function () {
+        window.location.href = 'index.html';
+      },
+    };
+    annyang.addCommands(commands);
   } else {
-      console.log("Annyang not available.");
+    console.log("Annyang not available.");
   }
 
   document.getElementById('startButton').addEventListener('click', function () {
-      if (window.annyang) {
-          annyang.start({continuous: true, autoRestart: false});
-      }
+    if (window.annyang) {
+      annyang.start({ continuous: true, autoRestart: false });
+    }
   });
 
   document.getElementById('stopButton').addEventListener('click', function () {
-      if (window.annyang) {
-          annyang.abort();
-      }
-  });  
+    if (window.annyang) {
+      annyang.abort();
+    }
+  });
 });

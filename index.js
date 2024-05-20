@@ -29,56 +29,56 @@ app.use(express.static(__dirname + '/public'))
 
 
 //Rendering the Front End to the user browser
-app.get('/', (req, res)=>{
-    res.sendFile('public/index.html', {root:__dirname})
+app.get('/', (req, res) => {
+    res.sendFile('public/index.html', { root: __dirname })
 })
 
 // fetching movie listing from watchmode.com
 
-app.get('/movie_lists', async (req, res)=>{
+app.get('/movie_lists', async (req, res) => {
     // url request coming from user must end with '/movie_lists'
     fetch(`https://api.watchmode.com/v1/list-titles/?apiKey=${apiKey}`)
-    .then((response)=>response.json())
-    .then(async (response)=>{
-        //console.log("there is response:", response['titles'])
-        const movieTitles = response['titles']
+        .then((response) => response.json())
+        .then(async (response) => {
+            //console.log("there is response:", response['titles'])
+            const movieTitles = response['titles']
 
-        // check to see if the database if empty
-        const {data, error}= await supabase
-            .from('MovieTitles')
-            .select('id')
+            // check to see if the database if empty
+            const { data, error } = await supabase
+                .from('MovieTitles')
+                .select('id')
 
             //console.log('DATA', data)
-        
-        if (data.length === 0){
-            const {data, error} = await supabase
-            .from('MovieTitles')
-            .insert(movieTitles)
 
-            res.send(data)
-            
-        }
-        else{
-            const {data, error} = await supabase
-                .from('MovieTitles')
-                .select()
+            if (data.length === 0) {
+                const { data, error } = await supabase
+                    .from('MovieTitles')
+                    .insert(movieTitles)
 
                 res.send(data)
-            
-        }
-        
-    })
+
+            }
+            else {
+                const { data, error } = await supabase
+                    .from('MovieTitles')
+                    .select()
+
+                res.send(data)
+
+            }
+
+        })
 
 })
 
 
 
-app.get('/movieDetails', async (req, res)=>{
+app.get('/movieDetails', async (req, res) => {
 
     const movietitle = req.query.title
-    console.log('This is param:',movietitle)
+    console.log('This is param:', movietitle)
 
-    const {data, error} = await supabase
+    const { data, error } = await supabase
         .from('titleID')
         .select()
         .eq('title', movietitle.trim())
@@ -87,83 +87,83 @@ app.get('/movieDetails', async (req, res)=>{
     var movieId = data[0].id
 
     fetch(`https://api.watchmode.com/v1/title/${movieId}/details/?apiKey=${apiKey}&append_to_response=sources`)
-        .then((response)=>response.json())
-        .then((response)=>{
+        .then((response) => response.json())
+        .then((response) => {
 
             res.send(JSON.stringify(response))
             return;
 
         })
-    
+
 })
 
 
-function populateNewRelease(){
+function populateNewRelease() {
     // This function will populate the database with new release from the watchmode API
     // if the supabase table is populated nothing will be done
-    
-    fetch(`https://api.watchmode.com/v1/releases/?apiKey=${apiKey}`)
-    .then((response)=>response.json())
-    .then(async (response)=>{
-        //console.log("there is response:", response['releases'])
-        const new_release = response['releases']
 
-        // check to see if the database if empty
-        const {data, error}= await supabase
-            .from('newReleases')
-            .select('id')
+    fetch(`https://api.watchmode.com/v1/releases/?apiKey=${apiKey}`)
+        .then((response) => response.json())
+        .then(async (response) => {
+            //console.log("there is response:", response['releases'])
+            const new_release = response['releases']
+
+            // check to see if the database if empty
+            const { data, error } = await supabase
+                .from('newReleases')
+                .select('id')
 
             //console.log('newReleases DB', data)
-        
-        if (data.length === 0 || data.length === null ){
-            const {data, error} = await supabase
-            .from('newReleases')
-            .insert(new_release)
-            
-        }
-        else{
-            // do nothing
-            
-        }
-        
-    })
+
+            if (data.length === 0 || data.length === null) {
+                const { data, error } = await supabase
+                    .from('newReleases')
+                    .insert(new_release)
+
+            }
+            else {
+                // do nothing
+
+            }
+
+        })
 
 }
 
 
 
-app.get('/releases', async (req, res)=>{
+app.get('/releases', async (req, res) => {
 
     console.log("Attempting to get new release data")
 
     // connecting to supabase
-    const {data, error} = await supabase
+    const { data, error } = await supabase
         .from('newReleases')
         .select()
 
-    if(error){
+    if (error) {
         console.log('Error has occured getting new movie release')
         res.send(error)
     }
 
-    else{
+    else {
         res.send(data)
     }
 
 
 })
 
-app.get('/newrelease', async (req, res)=>{
+app.get('/newrelease', async (req, res) => {
     let value = req.query.title
-    const {data, error} = await supabase
+    const { data, error } = await supabase
         .from('newReleases')
         .select()
         .eq('id', value.trim())
-    
-    if (error){
+
+    if (error) {
         console.log('Error occured when getting movie details')
     }
-    else{
+    else {
         res.send(data)
     }
 
@@ -173,7 +173,7 @@ app.get('/newrelease', async (req, res)=>{
 
 
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log('SERVER APP IS LIVE')
     populateNewRelease()
 

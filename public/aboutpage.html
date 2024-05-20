@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,14 @@
     <link rel="stylesheet" href="project.css">
     <style>
         .main-container {
-            padding: 20px 40px; 
+            padding: 15px 50px;
+            width: 80%;
+            border-radius: 50px;
         }
 
         #my-footer .navbar-text {
-            font-size: 16px; 
-            font-style: italic; 
+            font-size: 16px;
+            font-style: italic;
         }
 
         .section-header {
@@ -27,13 +30,15 @@
         }
     </style>
 </head>
+
 <body>
 
     <!--Navigation Bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <span class="navbar-title">Movie Discoveries</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -58,26 +63,30 @@
     <!-- About Content Section -->
     <div class="main-container">
         <h1 id="heading">About Movie Discoveries</h1>
-        
+
         <div class="row">
             <div class="col-md-4">
                 <h2 class="section-header"><span class="icon">&#128250;</span> Our Challenge</h2>
-                <p>With an abundance of films released each year, finding the right movie to watch has become overwhelming. Our platform tackles this by streamlining your search and discovery process.</p>
+                <p>With an abundance of films released each year, finding the right movie to watch has become
+                    overwhelming. Our platform tackles this by streamlining your search and discovery process.</p>
             </div>
             <div class="col-md-4">
                 <h2 class="section-header"><span class="icon">&#128105;&#127995;</span> Our Mission</h2>
-                <p>We aim to simplify your movie-watching experience, providing insights into movies from diverse genres and streaming platforms, making discovery fun and easy.</p>
+                <p>We aim to simplify your movie-watching experience, providing insights into movies from diverse genres
+                    and streaming platforms, making discovery fun and easy.</p>
             </div>
             <div class="col-md-4">
                 <h2 class="section-header"><span class="icon">&#128187;</span> Our Solution</h2>
-                <p>Our web app offers powerful search and filtering options, personalized recommendations, and a user-friendly interface, all powered by technology and data.</p>
+                <p>Our web app offers powerful search and filtering options, personalized recommendations, and a
+                    user-friendly interface, all powered by technology and data.</p>
             </div>
         </div>
-        
+
         <h2 class="section-header"><span class="icon">&#128640;</span> Who We Serve</h2>
-        <p>From casual viewers to movie buffs, our platform serves all movie lovers looking for the next great watch, leveraging their feedback to constantly evolve and improve.</p>
-        
-        
+        <p>From casual viewers to movie buffs, our platform serves all movie lovers looking for the next great watch,
+            leveraging their feedback to constantly evolve and improve.</p>
+
+
         <div style="text-align:center; margin: 20px;">
             <img src="movietime.gif" alt="Engaging Visual Content" style="max-width:100%; height:auto;">
         </div>
@@ -90,9 +99,9 @@
         <p>Ensure your mic is enabled to use this feature</p>
         <ul>
             <li>Navigate to a different page</li>
-                <ul>
-                    <li>Say: Navigate to "page"</li>
-                </ul>
+            <ul>
+                <li>Say: Navigate to "page"</li>
+            </ul>
         </ul>
         <button id="startButton">Start Listening</button>
         <button id="stopButton">Stop Listening</button>
@@ -114,4 +123,5 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
     <script src="index.js"></script>
 </body>
+
 </html>

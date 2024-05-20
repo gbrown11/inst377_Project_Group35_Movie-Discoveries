@@ -1,113 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Recommended for You</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="project.css">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended for You</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="project.css">
+</head>
 
-        <!--Navigation Bar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <span class="navbar-title">Movie Discoveries</span>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aboutpage.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="trendingpage.html">Trending Now</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="recommendedpage.html">Recommended</a>
-                        </li>
-                    </ul>
-                </div>
+<body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <span class="navbar-title">Movie Discoveries</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutpage.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="trendingpage.html">Trending Now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="recommendedpage.html">Recommended</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <!-- Recommended Movies Content Section -->
-        <div class="main-container">
-            <h1 id="heading">Recommended for You</h1>
-            <p>Discover new movies tailored to your taste. Check out these recommendations!</p>
-            <!-- Example Recommendations List -->
+    <!-- Recommended Movies Content Section -->
+    <div class="main-container" style="text-align: center;">
+        <h1 id="heading">Recommended for You</h1>
+        <p>Discover new movies tailored to your taste. Check out these recommendations!</p>
+        <!-- Example Recommendations List -->
 
-            <div id="form-area">
-                <br>
-                <h3>Select one of our recommended new release movies for detail</h3>
+        <div id="form-area">
+            <br>
+            <h3>Select one of our recommended new release movies for detail</h3>
 
-                <form id="form" onsubmit="displayMovie(); return false">
+            <form id="form" onsubmit="displayMovie(); return false">
 
-                    <label for="movie-title">Select a title</label>
-                    <select id="movie-title">
+                <label for="movie-title">Select a title</label>
+                <select id="movie-title">
 
-                    </select>
-                    <br><br>
-                    <input type="submit">
-                
-                </form>
-    
-            </div>
+                </select>
+                <br><br>
+                <input type="submit">
+
+            </form>
 
         </div>
-        <div id="movieDetailsArea">
-            <!--This area will display movie details-->
-            <div id="text">
-                <p id="title"></p>
-                <p id="source"></p>
-                <p id="date"></p>
-                <p id="type"></p>
-            </div>
-            <div id="poster">
 
-            </div>
+    </div>
+    <div id="movieDetailsArea">
+        <!--This area will display movie details-->
+        <div id="text">
+            <p id="title"></p>
+            <p id="source"></p>
+            <p id="date"></p>
+            <p id="type"></p>
+        </div>
+        <div id="poster">
 
         </div>
-        
 
-        <br><br><br>
+    </div>
 
-                <!--Voice Commands-->
-                <div id="audioContainer">
-                    <p>In this web page there is an option to navigate using audio</p>
-                    <p>Ensure your mic is enabled to use this feature</p>
-                    <ul>
-                        <li>Navigate to a different page</li>
-                            <ul>
-                                <li>Say: Navigate to "page"</li>
-                            </ul>
-                    </ul>
-                    <button id="startButton">Start Listening</button>
-                    <button id="stopButton">Stop Listening</button>
-                </div>
-            
-                <br><br><br><br><br><br>
 
-        <!-- Footer Section -->
-        <footer id="my-footer" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
-            <div class="container">
-                <span class="navbar-text">Designed by: Kofi Brenya, Gordon Brown, Michael Castro, Nicholas Majewski, and Luke Walsh</span>
-            </div>
-        </footer>
+    <br><br><br>
 
-        <!--Bootstrap JS and dependencies-->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
-        <!--Our Javascript Page-->
-        <script src="index.js"></script>
-        <script src="recommendedpage.js"></script>
-    </body>
+    <!--Voice Commands-->
+    <div id="audioContainer">
+        <p>In this web page there is an option to navigate using audio</p>
+        <p>Ensure your mic is enabled to use this feature</p>
+        <ul>
+            <li>Navigate to a different page</li>
+            <ul>
+                <li>Say: Navigate to "page"</li>
+            </ul>
+        </ul>
+        <button id="startButton">Start Listening</button>
+        <button id="stopButton">Stop Listening</button>
+    </div>
+
+    <br><br><br><br><br><br>
+
+    <!-- Footer Section -->
+    <footer id="my-footer" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+        <div class="container">
+            <span class="navbar-text">Designed by: Kofi Brenya, Gordon Brown, Michael Castro, Nicholas Majewski, and
+                Luke Walsh</span>
+        </div>
+    </footer>
+
+    <!--Bootstrap JS and dependencies-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <!--Our Javascript Page-->
+    <script src="index.js"></script>
+    <script src="recommendedpage.js"></script>
+</body>
 
 </html>

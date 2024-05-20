@@ -37,7 +37,7 @@ function fetchAndDisplayTrendingTitles() {
       titles.forEach((title, index) => {
         const listItem = document.createElement("li");
         listItem.classList.add("list-group-item");
-        
+
         // capitizing the first letter just to make it look nicer
         const capitalizedType = title.type.charAt(0).toUpperCase() + title.type.slice(1).replace(/_/g, ' ');
         listItem.innerHTML = `
@@ -59,36 +59,36 @@ fetchAndDisplayTrendingTitles();
 
 //Voice Commands
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   if (window.annyang) {
-      var commands = {
-          'navigate to about': function() {
-              window.location.href = 'aboutpage.html';
-          },
-          'navigate to trending': function() {
-              window.location.href = 'trendingpage.html';
-          },
-          'navigate to recommended': function() {
-              window.location.href = 'recommendedpage.html';
-          },
-          'navigate to home': function() {
-            window.location.href = 'index.html';
-        },
-      };  
-      annyang.addCommands(commands);
+    var commands = {
+      'navigate to about': function () {
+        window.location.href = 'aboutpage.html';
+      },
+      'navigate to trending': function () {
+        window.location.href = 'trendingpage.html';
+      },
+      'navigate to recommended': function () {
+        window.location.href = 'recommendedpage.html';
+      },
+      'navigate to home': function () {
+        window.location.href = 'index.html';
+      },
+    };
+    annyang.addCommands(commands);
   } else {
-      console.log("Annyang not available.");
+    console.log("Annyang not available.");
   }
 
   document.getElementById('startButton').addEventListener('click', function () {
-      if (window.annyang) {
-          annyang.start({continuous: true, autoRestart: false});
-      }
+    if (window.annyang) {
+      annyang.start({ continuous: true, autoRestart: false });
+    }
   });
 
   document.getElementById('stopButton').addEventListener('click', function () {
-      if (window.annyang) {
-          annyang.abort();
-      }
-  });  
+    if (window.annyang) {
+      annyang.abort();
+    }
+  });
 });
