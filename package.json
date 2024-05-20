@@ -2,7 +2,7 @@
   "name": "inst377_project_group35_movie-discoveries",
   "version": "1.0.0",
   "description": "Movie Discoveries",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "nodemon -e '*'",
     "test": "echo \"Error: no test specified\" && exit 1"
