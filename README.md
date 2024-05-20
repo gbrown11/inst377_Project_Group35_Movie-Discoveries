@@ -43,9 +43,9 @@ In today's digital age, the movie industry is booming with an ever-increasing nu
 
 This application has been tested on both Apple Safari and Google Chrome, on Mac and Windows computers, and on Android, iOS, and iPadOS tablets and smartphones. Although the application works on all of the aforementioned devices and browsers, it works seamlessly on Google Chrome with CORS activated because it is a dependency of the voice command feature.
 
-Link to Developer Manual: https://docs.google.com/document/d/1iQtrTg3yOZXmz6-VG2anxBNhbfzD5CX85O8qGllj_qw/edit?usp=sharing
+Link to Developer Manual: [Go to developer manual ](#dev-man)
 
-# Developers Manual
+# <a name="dev-man"></a> Developers Manual
 
 ## Installation:
 
